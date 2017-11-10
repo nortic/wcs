@@ -18,18 +18,18 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/toastr/build/toastr.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/toastr/build/toastr.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      },
-      "styles": [
-        "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.css"
-      ]
+      }
     }
   ],
   "e2e": {

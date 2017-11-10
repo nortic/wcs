@@ -1,6 +1,7 @@
 <div>
   <h2>Upcoming unmissable events !</h2>
   <hr>
+  <button [routerLink]="['/events/new']" class="btn btn-default">Add Event</button>
   <div class="row">
     <div *ngFor="let event of events" class="col-md-5">
       <event-thumbnail [event]="event"></event-thumbnail>
