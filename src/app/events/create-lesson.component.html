@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <h3>Create Lesson</h3>
+</div>
+<div class="col-md-6">
+  <form [formGroup]="newLessonForm" (submit)="saveLesson(newLessonForm.value)" autocomplete="off">
+    <div class="form-group" [ngClass]="{ 'error': theme.invalid && theme.dirty }">
+      <label for="lessonTheme">Lesson Theme:</label>
+      <em *ngIf="theme.invalid && theme.dirty && theme?.errors.required">Required</em>
+      <em *ngIf="theme.invalid && theme.dirty && theme?.errors.maxLength">Theme cannot exceed 250 characters</em>
+      <em *ngIf="theme.invalid && theme.dirty && theme?.errors.restrictedWords">Restricted words found: {{ theme.errors.restrictedWords }}</em>
+      <input formControlName="theme" id="lessonTheme" type="text" class="form-control" placeholder="Lesson theme..." />
+    </div>
+    <div class="form-group" [ngClass]="{ 'error': teachers.invalid && teachers.dirty }">
+      <label for="eventDate">Teachers:</label>
+      <em *ngIf="teachers.invalid && teachers.dirty && teachers?.errors.required">Required</em>
+      <input formControlName="teachers" id="teachers" type="text" class="form-control" placeholder="Teachers..." />
+    </div>
+    <div class="form-group" [ngClass]="{ 'error': level.invalid && level.dirty }">
+      <label for="level">Level:</label>
+      <em *ngIf="level.invalid && level.dirty">Required</em>
+      <select formControlName="level" class="form-control">
+        <option value="">Select level...</option>
+        <option value="Novice">Novice</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="All-star">All-star</option>
+      </select>
+    </div>
+    <div class="form-group" [ngClass]="{ 'error': description.invalid && description.dirty }">
+      <label for="description">Description:</label>
+      <em *ngIf="description.invalid && description.dirty">Required</em>
+      <textarea formControlName="description" id="description" rows=3 class="form-control" placeholder="Description..."></textarea>
+    </div>
+    <button [disabled]="newLessonForm.invalid" type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-default">Cancel</button>
+  </form>
+</div>

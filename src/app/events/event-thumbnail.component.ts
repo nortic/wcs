@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from "@angular/router";
 import { ToastrService } from '../common/toastr.service';
+import { IEvent } from './shared/event.model';
 
 @Component({
     selector: 'event-thumbnail',
@@ -19,7 +20,7 @@ import { ToastrService } from '../common/toastr.service';
     </div>`
 })
 export class EventThumbnailComponent {
-    @Input() event:any;
+    @Input() event:IEvent;
     constructor(private router:Router, private toastr:ToastrService) {
     }
 
@@ -32,7 +33,7 @@ export class EventThumbnailComponent {
     }
 
     handleParticipateClick(name, e) {
-        this.toastr.success('HEYA !!!', name);
+        this.toastr.success(`Participating ${name} !`);
         e.stopPropagation();
         e.preventDefault;
         return false;

@@ -1,0 +1,10 @@
+<div class="row" *ngFor="let lesson of lessons">
+  <div class="col-md-10">
+    <div class="well">
+        <h4>{{lesson.theme}}</h4>
+        <h6>{{lesson.teachers}}</h6>
+        <span>Level: {{lesson.level}}</span>
+        <p>{{lesson.description}}</p>
+    </div>
+  </div>
+</div>

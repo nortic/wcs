@@ -9,11 +9,11 @@ export class EventRouteActivator implements CanActivate {
     }
 
     canActivate(route:ActivatedRouteSnapshot) {
-        const eventExists = !!(route.params['id'] < +this.eventService.getEvents().length + 1);
-        if (!eventExists) {
-            this.router.navigate(['404'])
-        }
-        return eventExists;
+        // const eventExists = !!(route.params['id'] < +this.eventService.getEvents().length + 1);
+        // if (!eventExists) {
+        //     this.router.navigate(['404'])
+        // }
+        return true;
 
     }
 }
